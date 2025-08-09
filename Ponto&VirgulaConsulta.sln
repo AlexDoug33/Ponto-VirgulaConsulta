@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ponto&VirgulaConsulta", "Ponto&VirgulaConsulta\Ponto&VirgulaConsulta.csproj", "{BEF2F7EF-9E2D-43A6-9AB5-EFB55C9ECBE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEF2F7EF-9E2D-43A6-9AB5-EFB55C9ECBE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF2F7EF-9E2D-43A6-9AB5-EFB55C9ECBE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF2F7EF-9E2D-43A6-9AB5-EFB55C9ECBE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF2F7EF-9E2D-43A6-9AB5-EFB55C9ECBE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32824DB4-CD18-4CFC-89F1-74EDD9465F19}
+	EndGlobalSection
+EndGlobal
