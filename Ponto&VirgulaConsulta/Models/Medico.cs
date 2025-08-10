@@ -11,6 +11,6 @@
         public string EspecialidadeId { get; set; }
 
         public Especialidade Especialidade { get; set; } = null!;
-        public ICollection<Agendamento> Agendamentos { get; set; } = new List<Agendamento>();
+        public ICollection<Agendamento>? Agendamentos { get; set; } = new List<Agendamento>();
     }
 }
