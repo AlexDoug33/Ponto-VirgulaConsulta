@@ -5,6 +5,10 @@ using MudBlazor.Services;
 using Ponto_VirgulaConsulta.Components;
 using Ponto_VirgulaConsulta.Components.Account;
 using Ponto_VirgulaConsulta.Data;
+using Ponto_VirgulaConsulta.Repositories.Agendamentos;
+using Ponto_VirgulaConsulta.Repositories.Especialidades;
+using Ponto_VirgulaConsulta.Repositories.Medicos;
+using Ponto_VirgulaConsulta.Repositories.Pacientes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +23,11 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+
+builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+builder.Services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
+builder.Services.AddScoped<IAgendamentoRepository, AgendamentoRepository>();
 
 builder.Services.AddAuthentication(options =>
     {
