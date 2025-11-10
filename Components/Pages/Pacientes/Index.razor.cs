@@ -61,7 +61,6 @@ namespace Ponto_VirgulaConsulta.Components.Pages.Pacientes
         protected override async Task OnInitializedAsync()
         {
             var auth = await AuthenticationState;
-
             HideButtons = !auth.User.IsInRole("Atendente");
 
             Pacientes = await repository.GetAllAsync();
