@@ -60,11 +60,9 @@ namespace ProConsulta.Components.Pages.Medicos
 		{
 			var auth = await AuthenticationState;
 
-			//habilitar quando for implementar as regras de autorizaçoes.
+			HideButtons = !auth.User.IsInRole("Atendente");
 
-			//HideButtons = !auth.User.IsInRole("Atendente");
-
-            Medicos = await Repository.GetAllAsync();
+			Medicos = await Repository.GetAllAsync();
 		}
 	}
 }
