@@ -1,0 +1,22 @@
+﻿@* @page "/Account/Manage/logout"
+@using Microsoft.AspNetCore.Identity
+@using Ponto_VirgulaConsulta.Data
+@inject NavigationManager Navigation
+@inject SignInManager<ApplicationUser> SignInManager
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await SignInManager.SignOutAsync(); // Identity sigue aquí
+
+        try
+        {
+            Navigation.NavigateTo("/");
+        }
+        catch (Microsoft.AspNetCore.Components.NavigationException)
+        {
+            // Ignoramos: Blazor la usa internamente al navegar
+        }
+    }
+}
+ *@

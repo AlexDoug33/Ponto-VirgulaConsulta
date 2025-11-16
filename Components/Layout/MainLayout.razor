@@ -1,53 +1,78 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
 
-<MudThemeProvider IsDarkMode=" _isDark"/>
+<MudThemeProvider IsDarkMode="_isDark" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
+
 <MudLayout>
     <MudAppBar Elevation="1">
-        <MudStaticNavDrawerToggle DrawerId="nav-drawer" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" />
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start"
+                       OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h6" Class="ml-3">Ponto & Vírgula Consulta</MudText>
         <MudSpacer />
         <MudStack Row>
-            <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+            <MudIconButton Icon="@Icons.Material.Filled.MoreVert"
+                           Color="Color.Inherit"
+                           Edge="Edge.End" />
 
             @if (_isDark)
             {
-                <MudIconButton @onclick="ThemeToggle" Icon="@Icons.Material.Filled.WbSunny" Color="Color.Inherit" />
+                <MudIconButton @onclick="ThemeToggle"
+                               Icon="@Icons.Material.Filled.WbSunny"
+                               Color="Color.Inherit" />
             }
             else
             {
-                <MudIconButton @onclick="ThemeToggle" Icon="@Icons.Material.Filled.DarkMode" Color="Color.Inherit" />
+                <MudIconButton @onclick="ThemeToggle"
+                               Icon="@Icons.Material.Filled.DarkMode"
+                               Color="Color.Inherit" />
             }
+            <AuthorizeView>
+                <Authorized>
+                    <form method="post" action="Account/Logout" style="display:inline;">
+                        <AntiforgeryToken />
+                        <!-- OJO: returnUrl en minúsculas -->
+                        <input type="hidden" name="returnUrl"
+                               value="@Navigation.ToBaseRelativePath(Navigation.Uri)" />
+                        <MudIconButton Icon="@Icons.Material.Filled.ExitToApp"
+                                       Color="Color.Inherit"
+                                       ButtonType="ButtonType.Submit" />
+                    </form>
+                </Authorized>
+            </AuthorizeView>
 
+           @*  <AuthorizeView>
+                <MudIconButton Icon="@Icons.Material.Filled.ExitToApp"
+                               @onclick="LogOff"
+                               Color="Color.Inherit" />
+            </AuthorizeView> *@
         </MudStack>
-      
     </MudAppBar>
-    <MudDrawer id="nav-drawer" @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+
+    <MudDrawer @bind-Open="_drawerOpen"
+               ClipMode="DrawerClipMode.Always"
+               Elevation="2">
         <NavMenu />
     </MudDrawer>
-    <MudMainContent Class="pt-16 pa-4">
+
+    <MudMainContent Class="mt-16 pa-4">
         @Body
     </MudMainContent>
 </MudLayout>
-
-
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
 
 @code {
     private bool _drawerOpen = true;
     private bool _isDark = true;
 
+    private void DrawerToggle() => _drawerOpen = !_drawerOpen;
+    private void ThemeToggle() => _isDark = !_isDark;
 
-    private void ThemeToggle()
-    {
-        _isDark = !_isDark;
-    }
+    // private void LogOff()
+    // {
+    //     Navigation.NavigateTo("/Account/Manage/logout"); // <<< ESTA es la ruta buena
+    // }
 }
-
-
