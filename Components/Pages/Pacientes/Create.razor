@@ -1,6 +1,6 @@
 ﻿@page "/pacientes/create"
 @inherits CreatePacientePage
-
+@attribute [Authorize(Roles = "Atendente")]
 
 <MudText Typo="Typo.h3">Cadastro de Pacientes</MudText>
 

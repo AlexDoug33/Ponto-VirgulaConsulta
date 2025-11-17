@@ -52,7 +52,7 @@ namespace Ponto_VirgulaConsulta.Components.Pages.Agendamentos
         protected override async Task OnInitializedAsync()
         {
             var authState = await AuthenticationState;
-           // HideButtons = !authState.User.IsInRole("Atendente");
+            HideButtons = !authState.User.IsInRole("Atendente");
 
             Agendamentos = await AgendamentoRepository.GetAllAsync();
         }

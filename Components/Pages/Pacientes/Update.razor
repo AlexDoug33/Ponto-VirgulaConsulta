@@ -1,5 +1,6 @@
 ﻿@page "/pacientes/update/{PacienteId:int}"
 @inherits UpdatePaciente
+@attribute [Authorize(Roles = "Atendente")]
 
 <MudText Typo="Typo.h3">Atualizar Paciente</MudText>
 
