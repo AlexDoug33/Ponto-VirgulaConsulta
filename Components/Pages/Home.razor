@@ -2,6 +2,7 @@
 @using Ponto_VirgulaConsulta.Models
 @inject IAgendamentoRepository repository
 
+@* end *@
 <PageTitle>DASHBOARD</PageTitle>
 
 <MudText Typo="Typo.h3" Class="d-flex justify-content-center">DASHBOARD</MudText>
@@ -74,4 +75,5 @@
         data = agendamentos.Select(x => (double)x.QuantidadeAgendamentos).ToArray();
     }
 }
+
 
