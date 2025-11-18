@@ -1,3 +1,5 @@
+# Medical Appointment Registration System
+
 ## Objective
 This project was developed with the objective of creating an efficient system for registering medical appointments. It allows for the management of doctors and patients, and provides an overview through an intuitive dashboard, in addition to offering access control for different user levels.
 
